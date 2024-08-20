@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+        <div class="row">
+            <div class="col-11">
+                <h4><strong>Eventos Cadastrados</strong></h4>
+            </div>
+            <div class="col-1">   <a href="{% url 'tarefas_form' %}" class="btm btn-outline-warning">Selecionar</a>    </div>
+        </div>
+    </main>
+
+        <div class="container">
+            <h1 > {{ Lista de Tarefas }}</h1>
+
+
+            <table class="table text-center">
+              <thead class="thead-light">
+                <tr>
+                    <th scope="col">Data:</th>
+                    <th scope="col">Responsável:</th>
+                    <th scope="col">Tarefa:</th>
+                    <th scope="col">Status:</th>
+                    <th scope="col">Observação:</th>
+              </thead>
+              <tbody>
+
+               {% for tarefa in tarefas_list %}
+                    <tr>
+                        <th>{{ tarefa.data }}</th>
+                        <th>{{ tarefa.responsável }}</th>
+                        <th>{{ tarefa.tarefa }}</th>
+                        <th>{{ tarefa.status }}</th>
+                        <th>{{ tarefa.observação}}</th>
+
+                    </tr>
+                    {% endfor %}
+
+              </tbody>
+            </table>
+
+
+</div>
+{% endblock %}
+'''
+
+
