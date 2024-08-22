@@ -4,14 +4,14 @@
 {% block content %}
         <div class="row">
             <div class="col-11">
-                <h4><strong>Eventos Cadastrados</strong></h4>
+                <!--<h4><strong>Eventos Cadastrados</strong></h4>-->
             </div>
-            <div class="col-1">   <a href="{% url 'tarefas_form' %}" class="btm btn-outline-warning">Selecionar</a>    </div>
+            <div class="col-1">  <a href="{% url 'tarefas_form' %}" class="btm btn-outline-warning">Cadastrar:</a>    </div>
         </div>
     </main>
 
         <div class="container">
-            <h1 > {{ Lista de Tarefas }}</h1>
+        <h1> Preencha os campos a seguir:</h1>
 
 
             <table class="table text-center">
@@ -28,10 +28,10 @@
                {% for tarefa in tarefas_list %}
                     <tr>
                         <th>{{ tarefa.data }}</th>
-                        <th>{{ tarefa.responsável }}</th>
+                        <th>{{ tarefa.responsavel }}</th>
                         <th>{{ tarefa.tarefa }}</th>
                         <th>{{ tarefa.status }}</th>
-                        <th>{{ tarefa.observação}}</th>
+                        <th>{{ tarefa.observacao}}</th>
 
                     </tr>
                     {% endfor %}

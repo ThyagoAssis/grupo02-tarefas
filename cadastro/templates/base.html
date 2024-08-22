@@ -1,30 +1,42 @@
 <!-- templates/base.html -->
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'cadastro/css/styles.css' %}">
     <title>{% block title %}Meu Site{% endblock %}</title>
 </head>
 <body>
     <header>
-        <h1>Bem-vindo ao Meu Site</h1>
+        <h1 class="meu_titulo">Organizador de Tarefas</h1>
+        <nav class="menu">
+            <ul class="justify-content-sm-center">
+                <li><a href="{% url 'tarefas_list' %}">Início</a></li>
+                <li><a href="{% url 'tarefas_form' %}">Cadastro</a></li>
+                <li><a href="/about/"> Login</a></li>
+                <li><a href="/contact/">Sobre</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="/">Início</a></li>
-            <li><a href="/about/">Sobre</a></li>
-            <li><a href="/contact/">Contato</a></li>
-        </ul>
-    </nav>
-    <main>
+
+    <main class="container">
         {% block content %}
         <!-- Vidro da foto--->
         {% endblock %}
     </main>
-    <footer>
-        <p>&copy; 2024 Meu Site</p>
+    <footer class="fixed-bottom">
+       <nav class="navbar fixed-bottom navbar-light justify-content-sm-center" style="background-color:#ffb142">
+          <a>&copy; 2024 Organizador de Tarefas</a>
+        </nav>
+        <!--- <p>&copy; 2024 Meu Site</p> -->
     </footer>
 </body>
 </html>
 
+<!--<nav class="navbar navbar-info  text-light  justify-content-sm-center">-->

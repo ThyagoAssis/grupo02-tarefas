@@ -1,11 +1,6 @@
-from django.shortcuts import render
-
 from django.views.generic import ListView, CreateView
-
 from .models import Tarefas
-
 from django.urls import reverse_lazy
-
 from django.shortcuts import render
 
 # Create your views here.
@@ -22,11 +17,16 @@ class TarefasCreateView(CreateView):
     success_url = reverse_lazy('tarefas_list')
 
 
-def index(request):
-    return render(request, 'tarefas_form.html')
+# def index(request):
+#     return render(request, 'tarefas_form.html')
+#
+# def about(request):
+#     return render(request, 'tarefas_list.html')
+#
+#
+# def Schedule(request):
+#     return render(request, 'base.html')
 
-def about(request):
-    return render(request, 'tarefas_list.html')
 
 
 #lass CadastroListView(ListView):

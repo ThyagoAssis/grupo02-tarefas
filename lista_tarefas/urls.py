@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TarefasListView.as_view(), name='tarefas_list'),
     path('cadastro/', TarefasCreateView.as_view(), name='tarefas_form'),
-    path('', views.tarefas_form, name='tarefas_form'),
-    path('about/', views.tarefas_list, name='tarefas_list'),
 ]
+
+#path('', tarefas_form.as_view(), name='tarefas_form'),
+#path('about/', name='tarefas_list', tarefas_list.as_view()),
