@@ -1,30 +1,21 @@
-"""
-URL configuration for lista_tarefas project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 
-from cadastro.views import TarefasListView, TarefasCreateView
-
-
+from cadastro.views import TarefasListView, TarefasCreateView, TarefasUpdateView, TarefasDeleteView, sobre,MeuLoginView, MeuCadastroView
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TarefasListView.as_view(), name='tarefas_list'),
+    path('lista/', TarefasListView.as_view(), name='tarefas_list'),
     path('cadastro/', TarefasCreateView.as_view(), name='tarefas_form'),
+    path('edicao/<int:pk>/', TarefasUpdateView.as_view(), name='tarefas_edicao'),
+    path('delete/<int:pk>/', TarefasDeleteView.as_view(), name='tarefas_delete'),
+    path('sobre/', sobre),
+
+    #Rotas de login
+    path('', MeuLoginView.as_view(), name='login'),
+    path('cadastro_login/', MeuCadastroView.as_view(), name='cadastro_login'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
 ]
 
 #path('', tarefas_form.as_view(), name='tarefas_form'),

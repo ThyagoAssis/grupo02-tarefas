@@ -5,11 +5,18 @@
 {% block title %}Página Inicial{% endblock %}
 
 {% block content %}
-        <form method="POST">
+{% include 'componentes/header.html'%}
+
+<div class="container">
+    <form method="POST">
             <!---O django criptografa os dados do formulario--->
             {% csrf_token %}
             <!---Criação do formulario pelo CreateView--->
             {{ form | crispy }}
             <button type="submit"> Enviar </button>
         </form>
+</div>
+
+
+{% include 'componentes/footer.html'%}
 {% endblock %}
