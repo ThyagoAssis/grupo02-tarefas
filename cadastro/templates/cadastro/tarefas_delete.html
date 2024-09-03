@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <title>Title</title>
-        </head>
-        <body>
-        <h1>Deletar Aluno</h1>
-        <p>Tem certeza que deseja deletar o Aluno: "{{ tarefa.nome }}"?</p>
-        <form method="post">
+{% extends 'base.html'%}
+{% block content %}
+
+       <div class="row d-flex justify-content-sm-center text-center mt-5 ">
+    <div class="col-sm-10 align-items-center">
+        <h1 >Deletar Tarefas</h1>
+        <p>Tem certeza que deseja deletar o post "{{ tarefas.tarefa }}"?</p>
+
+        <form method="post" class="align-items-center">
             {% csrf_token %}
-            <button type="submit">Deletar</button>
+            <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
+            <a href="{% url 'tarefas_list' %} " class="btn btn-dark btn-sm">Cancelar</a>
         </form>
-        <a href="{% url 'cadastro_list' %}">Cancelar</a>
-    </body>
-</html>
+
+    </div>
+</div>
+{% endblock %}

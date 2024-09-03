@@ -2,17 +2,12 @@
 
 
 {% block content %}
-{% include 'componentes/header.html'%}
-        <div class="row">
-            <div class="col-11">
-                <!--<h4><strong>Eventos Cadastrados</strong></h4>-->
-            </div>
-            <div class="col-1">  <a href="{% url 'tarefas_form' %}" class="btm btn-outline-warning">Cadastrar:</a>    </div>
-        </div>
-    </main>
+
+
 
         <div class="container">
-        <h1> Preencha os campos a seguir:</h1>
+            <br>
+        <h3> Lista de Tarefas:</h3>
 
 
             <table class="table text-center">
@@ -23,6 +18,7 @@
                     <th scope="col">Tarefa:</th>
                     <th scope="col">Status:</th>
                     <th scope="col">Observação:</th>
+                    <th scope="col">Ações:</th>
               </thead>
               <tbody>
 
@@ -33,6 +29,11 @@
                         <th>{{ tarefa.tarefa }}</th>
                         <th>{{ tarefa.status }}</th>
                         <th>{{ tarefa.observacao}}</th>
+                        <th>
+                            <a href="{% url 'tarefas_edicao' tarefa.pk %}" class="btn btn-info btn-sm">Editar</a>
+                             <a href="{% url 'tarefas_delete' tarefa.pk %}" class="btn btn-secondary btn-sm">Excluir</a>
+                        </th>
+
 
                     </tr>
                     {% endfor %}
@@ -42,7 +43,7 @@
 
 
 </div>
-{% include 'componentes/footer.html'%}
+
 {% endblock %}
 
 

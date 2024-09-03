@@ -5,14 +5,19 @@ from .models import Tarefas
 from django.urls import reverse_lazy
 
 
+#Cptura de sessoes
+from django.views import View
+from django.shortcuts import render, redirect
 
 ##Ferramentas para login
+'''
+
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.views import View
 from django.shortcuts import render, redirect
 from .forms import MeuCadastroForm, MeuLoginForm
-
+'''
 
 # Create your views here.
 class TarefasListView(ListView):
@@ -31,14 +36,40 @@ class TarefasUpdateView(UpdateView):
 
 class TarefasDeleteView(DeleteView):
     model = Tarefas
-    template_name = 'lista/tarefas_delete.html'
+    template_name = 'cadastro/tarefas_delete.html'
     success_url = reverse_lazy('tarefas_list')
 
 def sobre(request):
     return render(request, 'cadastro/sobre.html')
 
 
+##Capturando sessões
+class SolicitarDadosView(View):
+
+    def get(self, request):
+        return render(request, 'cadastro/section.html')
+
+    def post(self, request):
+        nome_usuario = request.POST.get('nome_usuario')
+        email = request.POST.get('email')
+
+        # Armazenando os dados na sessão
+        request.session['nome_usuario'] = nome_usuario
+        request.session['email'] = email
+
+        return redirect('tarefas_list')
+
+
+##Encerrar a sessao
+class EncerrarSessaoView(View):
+    def get(self, request):
+        request.session.flush()  # Remove todos os dados da sessão e exclui a sessão
+        return redirect('/')  # Redireciona para a página inicial ou qualquer outra página
+
 ##Classe de login
+
+'''
+
 class MeuLoginView(LoginView):
     template_name = 'cadastro/login.html'
     form_class = MeuLoginForm
@@ -81,3 +112,4 @@ class MeuCadastroView(View):
 #class CadastroCreateView(CreateView):
    #model = Cadastro
 
+'''

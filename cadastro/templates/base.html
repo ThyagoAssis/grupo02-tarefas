@@ -13,11 +13,13 @@
     <title>{% block title %}Meu Site{% endblock %}</title>
 </head>
 <body>
+    {% include 'componentes/header.html'%}
     <main>
         {% block content %}
         <!-- Vidro da foto--->
         {% endblock %}
     </main>
+    {% include 'componentes/footer.html'%}
 </body>
 </html>
 

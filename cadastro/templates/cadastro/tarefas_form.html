@@ -5,9 +5,9 @@
 {% block title %}Página Inicial{% endblock %}
 
 {% block content %}
-{% include 'componentes/header.html'%}
 
-<div class="container">
+
+<div class="container mt-5">
     <form method="POST">
             <!---O django criptografa os dados do formulario--->
             {% csrf_token %}
@@ -18,5 +18,5 @@
 </div>
 
 
-{% include 'componentes/footer.html'%}
+
 {% endblock %}

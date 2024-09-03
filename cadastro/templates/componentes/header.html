@@ -1,12 +1,31 @@
 <header>
-        <h1 class="meu_titulo">Organizador de Tarefas</h1>
-        <nav class="menu">
-            <ul class="justify-content-sm-center">
-                <li><a href="{% url 'tarefas_list' %}">Início</a></li>
-                <li><a href="{% url 'tarefas_form' %}">Cadastro</a></li>
+    <!--- Navbar 01-->
+    <nav class="navbar menu">
+        <div class="container">
+            <div class="col-3">
+                <a class="navbar-brand meu_titulo display-8" href="{% url 'tarefas_list' %}">TaskGest</a>
+            </div>
 
-                <li><a href="/contact/">Sobre</a></li>
-                <a href="{% url 'logout' %}">Logout</a>
-            </ul>
-        </nav>
+            <div class="col-5 d-flex justify-content-sm-center mt-3">
+                <ul>
+                    <li><a href="{% url 'tarefas_list' %}">Início</a></li>
+                    <li><a href="{% url 'tarefas_form' %}">Cadastro</a></li>
+                    <li><a href="{% url 'sobre' %}">Sobre</a></li>
+                    <!---<a href="">Logout</a>-->
+                </ul>
+            </div>
+
+            <div class="col-3 text-light mt-3">
+            {% if request.session.nome_usuario %}
+                <p>Olá, {{ request.session.nome_usuario }}! <a href="{% url 'section_fim' %}" class="text-info ms-3">Sair</a></p>
+            {% endif %}
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
 </header>

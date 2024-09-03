@@ -7,7 +7,7 @@
 .menu{
     margin: 0;
     padding: 0;
-    background-color: #ffb142;
+    background-color: #D9597B;
     /* height: 30px; */
     text-align: center;
     padding: 20px;
@@ -25,14 +25,14 @@
     font-weight: bold; /*Coloca o texto em negrito*/
 }
 .meu_titulo{
-     background-color: #cc8e35;
      margin: 0;
      padding: 5px;
      color:  #fff;
      text-align: center;
+     font-size: 30px;
 }
 .login{
-    background-color: #ffb142 !important;
+    background-color: #D9597B !important;
     width: 50% !important;
     height: 50vh% !important;
 }
@@ -41,3 +41,21 @@
 }
 
 
+body{
+    background-color: #dfe6e9 !important;
+}
+
+nav{
+    background-color: #D9597B;
+}
+.nav-1{
+    background-color: #D9597B;
+    height: 10vh;
+}
+
+.session{
+    width: 50vw;
+}
+.fixed-bottom{
+    background-color: #D9597B;
+}
