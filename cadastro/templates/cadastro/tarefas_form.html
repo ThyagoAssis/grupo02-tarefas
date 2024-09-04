@@ -2,7 +2,7 @@
 <!-- templates/index.html -->
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
-{% block title %}Página Inicial{% endblock %}
+{% block title %}Meu Site{% endblock %}
 
 {% block content %}
 
@@ -13,7 +13,7 @@
             {% csrf_token %}
             <!---Criação do formulario pelo CreateView--->
             {{ form | crispy }}
-            <button type="submit"> Enviar </button>
+            <button type="button" class="btn btn-outline-info">Cadastrar</button>
         </form>
 </div>
 
